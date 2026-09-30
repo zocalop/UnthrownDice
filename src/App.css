@@ -1,0 +1,19 @@
+
+.dice-style {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+
+  box-sizing: border-box;
+
+  transform-origin: center center;
+}
+
+.dice-output {
+  position: fixed;
+  top: 50%;
+  font-size: 4rem;
+  left: 50%;
+
+  transform-origin: center center;
+}

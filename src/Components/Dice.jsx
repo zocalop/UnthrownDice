@@ -3,18 +3,28 @@ import { useState } from 'react';
 
 function Dice() { 
   const [roll, setRoll] = useState(''); 
+  const [die1, setDie1] = useState('');
+
   const handleRoll = (e) => {
-    setRoll(Math.floor(Math.random() * 6) + 1);
+    e.preventDefault();
+    setRoll(Math.floor(Math.random() * die1) + 1);
   };
 
   return (
-    <div>
-      <button
-        className="dice-style"
-        onClick={(e) => handleRoll()}
-      >
-        Throw Die
-      </button>
+    <div className="die1">
+      <form onSubmit={handleRoll}>
+        <input
+          type="number"
+          value={die1}
+          onChange={(e) => setDie1(e.target.value)}
+        />
+        <button
+          className="dice-style"
+          type="submit"
+        >
+          Throw Die
+        </button>
+      </form>
       <p className="dice-output">
         {roll}
       </p>

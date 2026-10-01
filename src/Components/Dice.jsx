@@ -2,33 +2,91 @@
 import { useState } from 'react';
 
 function Dice() { 
-  const [roll, setRoll] = useState(''); 
-  const [die1, setDie1] = useState('');
+  const [roll1, setRoll1] = useState('');
+  const [roll2, setRoll2] = useState('');
+  const [roll3, setRoll3] = useState(''); 
+  const [die1, setDie1] = useState('6');
+  const [die2, setDie2] = useState('10');
+  const [die3, setDie3] = useState('100');
 
-  const handleRoll = (e) => {
+  const handleRoll1 = (e) => {
     e.preventDefault();
-    setRoll(Math.floor(Math.random() * die1) + 1);
+    setRoll1(Math.floor(Math.random() * die1) + 1);
+  };
+  const handleRoll2 = (e) => {
+    e.preventDefault();
+    setRoll2(Math.floor(Math.random() * die2) + 1);
+  };
+  const handleRoll3 = (e) => {
+    e.preventDefault();
+    setRoll3(Math.floor(Math.random() * die3) + 1);
   };
 
   return (
-    <div className="die1">
-      <form onSubmit={handleRoll}>
+    <div className="dice-bar">
+      <form 
+        onSubmit={handleRoll1}
+        className="dice-bar-form1"
+      >
         <input
+          className="input"
           type="number"
           value={die1}
           onChange={(e) => setDie1(e.target.value)}
         />
+        <br />
         <button
-          className="dice-style"
           type="submit"
+          className="roll-btn"
         >
           Throw Die
         </button>
+        <br />
+        {roll1}
       </form>
-      <p className="dice-output">
-        {roll}
-      </p>
+      <form
+        onSubmit={handleRoll2}
+        className="dice-bar-form2"
+      >
+
+        <input
+          className="input"
+          type="number"
+          value={die2}
+          onChange={(e) => setDie2(e.target.value)}
+        />
+        <br />
+        <button
+          type="submit"
+          className="roll-btn"
+        >
+          Throw Die
+        </button>
+        <br />
+        {roll2}
+      </form>
+      <form
+        onSubmit={handleRoll3}
+        className="dice-bar-form3"
+      >
+        <input
+          className="input"
+          type="number"
+          value={die3}
+          onChange={(e) => setDie3(e.target.value)}
+        />
+        <br />
+        <button
+          type="submit"
+          className="roll-btn"
+        >
+          Throw Die
+        </button>
+        <br />
+        {roll3}
+      </form>
     </div>
+    
   )
 };
 

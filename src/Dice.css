@@ -51,6 +51,7 @@ html, body, #root {
   transform: translateY(100%);
   transition: transform 0.5s ease;
   overflow-y: auto;
+  overflow-x: hidden;
   width: 25%;
   border: 10px solid #3B2416;
   border-radius: 0px;

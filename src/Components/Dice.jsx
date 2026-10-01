@@ -2,10 +2,11 @@
 import { useState } from 'react';
 import RollLog from './RollLog.jsx';
 
-function Dice() { 
+function Dice() {
   const [roll1, setRoll1] = useState('');
   const [roll2, setRoll2] = useState('');
   const [roll3, setRoll3] = useState(''); 
+
   const [die1, setDie1] = useState('6');
   const [die2, setDie2] = useState('10');
   const [die3, setDie3] = useState('100');
@@ -144,7 +145,7 @@ function Dice() {
     </div>
 
     <div className={`roll-log ${showRollLog ? 'visible' : ''}`}>
-      <RollLog onCloseLog={handleCloseLog} />
+      <RollLog onCloseLog={handleCloseLog} roll1={roll1} />
     </div>
   </>
   )

@@ -1,6 +1,7 @@
 
 import Dice from './Components/Dice.jsx';
-import './App.css';
+import './Dice.css';
+import './RollLog.css';
 
 function App() {
 

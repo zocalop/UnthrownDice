@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-
+import RollLog from './RollLog.jsx';
 
 function Dice() { 
   const [roll1, setRoll1] = useState('');
@@ -25,8 +25,20 @@ function Dice() {
   };
 
   const handleLogBtn = (e) => {
-    e.preventDefault();
     setShowRollLog(true);
+  };
+
+  const handleCloseLog = () => {
+    setShowRollLog(false);
+  };
+
+  const handleResetDice = () => {
+    setDie1(6);
+    setDie2(10);
+    setDie3(100);
+    setRoll1('');
+    setRoll2('');
+    setRoll3('');
   };
 
   return (
@@ -34,7 +46,7 @@ function Dice() {
     <div className="dice-bar">
       <button
         className="log-btn"
-        onClick={(e) => handleLogBtn()}
+        onClick={handleLogBtn}
       >
         Roll Log
       </button>
@@ -54,10 +66,15 @@ function Dice() {
           type="submit"
           className="roll-btn"
         >
-          Throw Die
+          Throw Die 1
         </button>
         <br />
-        {roll1}
+        <input 
+          className="output"
+          type="text"
+          readOnly
+          value={roll1}
+        />
       </form>
 
       <form
@@ -75,10 +92,15 @@ function Dice() {
           type="submit"
           className="roll-btn"
         >
-          Throw Die
+          Throw Die 2
         </button>
         <br />
-        {roll2}
+        <input
+          className="output"
+          type="text"
+          readOnly
+          value={roll2}
+        />
       </form>
 
       <form
@@ -96,15 +118,27 @@ function Dice() {
           type="submit"
           className="roll-btn"
         >
-          Throw Die
+          Throw Die 3
         </button>
         <br />
-        {roll3}
+        <input
+          className="output"
+          type="text"
+          readOnly
+          value={roll3}
+        />
       </form>
+
+      <button
+        className="reset-btn"
+        onClick={handleResetDice}
+      >
+        Reset Dice
+      </button>
     </div>
 
     <div className={`roll-log ${showRollLog ? 'visible' : ''}`}>
-
+      <RollLog onCloseLog={handleCloseLog} />
     </div>
   </>
   )

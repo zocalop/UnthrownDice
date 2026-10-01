@@ -135,6 +135,12 @@ function Dice() {
       >
         Reset Dice
       </button>
+
+      <button
+        className="reset-btn"
+      >
+        Psycho Scope
+      </button>
     </div>
 
     <div className={`roll-log ${showRollLog ? 'visible' : ''}`}>

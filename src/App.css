@@ -35,3 +35,21 @@ html, body, #root {
   border-radius: 25px;
   text-align: center;
 }
+
+.roll-log {
+  z-index: 9999;
+}
+
+.roll-log.visible {
+
+}
+
+.log-btn {
+  margin-top: 36px;
+  color: #3B2416;
+  width: 65px;
+  height: 65px;
+  border-radius: 55px;
+  border: 5px double #3B2416;
+  background: #c9a227;
+}

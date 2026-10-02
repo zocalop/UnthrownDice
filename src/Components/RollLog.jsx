@@ -1,14 +1,17 @@
 
 import { useState, useEffect }from 'react';
 
-function RollLog({ onCloseLog, roll1 }) {
+function RollLog({ onCloseLog, newRoll }) {
   const [rolls, setRolls] = useState([]);
 
   useEffect(() => {
-    if (roll1 !== '') {
-      setRolls(prevRolls => [...prevRolls, roll1]);
+    if (newRoll !== '') {
+      setRolls(prevRolls => [
+        ...prevRolls, 
+        newRoll
+      ]);
     }
-  }, [roll1]);
+  }, [newRoll]);
 
   return (
     <>
@@ -17,9 +20,9 @@ function RollLog({ onCloseLog, roll1 }) {
       >
       </button>
       <div className="roll-log-page">
-        {rolls.map((roll1, index) => (
+        {rolls.map((roll, index) => (
           <div key={index}>
-            Die 1 rolled {roll1}
+            Die {roll.die} rolled {roll.result}
           </div>
         ))}
       </div>

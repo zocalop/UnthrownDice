@@ -5,7 +5,9 @@ import RollLog from './RollLog.jsx';
 function Dice() {
   const [roll1, setRoll1] = useState('');
   const [roll2, setRoll2] = useState('');
-  const [roll3, setRoll3] = useState(''); 
+  const [roll3, setRoll3] = useState('');
+
+  const [newRoll, setNewRoll] = useState(''); 
 
   const [die1, setDie1] = useState('6');
   const [die2, setDie2] = useState('10');
@@ -14,15 +16,30 @@ function Dice() {
 
   const handleRoll1 = (e) => {
     e.preventDefault();
-    setRoll1(Math.floor(Math.random() * die1) + 1);
+    const result = (Math.floor(Math.random() * die1) + 1);
+    setRoll1(result);
+    setNewRoll({
+      die: 1,
+      result: result
+    });
   };
   const handleRoll2 = (e) => {
     e.preventDefault();
-    setRoll2(Math.floor(Math.random() * die2) + 1);
+    const result = (Math.floor(Math.random() * die2) + 1);
+    setRoll2(result);
+    setNewRoll({
+      die: 2,
+      result: result
+    });
   };
   const handleRoll3 = (e) => {
     e.preventDefault();
-    setRoll3(Math.floor(Math.random() * die3) + 1);
+    const result = (Math.floor(Math.random() * die3) + 1);
+    setRoll3(result);
+    setNewRoll({
+      die: 3,
+      result: result
+    });
   };
 
   const handleLogBtn = (e) => {
@@ -145,7 +162,7 @@ function Dice() {
     </div>
 
     <div className={`roll-log ${showRollLog ? 'visible' : ''}`}>
-      <RollLog onCloseLog={handleCloseLog} roll1={roll1} />
+      <RollLog onCloseLog={handleCloseLog} newRoll={newRoll} />
     </div>
   </>
   )

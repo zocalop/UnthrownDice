@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import RollLog from './RollLog.jsx';
+import CharSheet from './CharSheet.jsx';
 
 function Dice() {
   const [roll1, setRoll1] = useState('');
@@ -12,7 +13,10 @@ function Dice() {
   const [die1, setDie1] = useState('6');
   const [die2, setDie2] = useState('10');
   const [die3, setDie3] = useState('100');
+
   const [showRollLog, setShowRollLog] = useState(false);
+
+  const [showCharSheet, setShowCharSheet] = useState(false);
 
   const handleRoll1 = (e) => {
     e.preventDefault();

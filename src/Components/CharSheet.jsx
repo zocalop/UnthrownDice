@@ -1,5 +1,5 @@
 
-function CharSheet(){
+function CharSheet({ onCloseCharSheet }){
   
 
   return (
@@ -7,6 +7,10 @@ function CharSheet(){
       <div
         className="char-sheet"
       >
+        <button
+          onClick={onCloseCharSheet}
+        >
+        </button>
       </div>
     </>
   )

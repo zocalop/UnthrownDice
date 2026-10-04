@@ -3,11 +3,11 @@ html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 2000px;
+  overflow-x: hidden;
 }
 
 .dice-bar {
-  position: fixed;
+  position: absolute;
   width: 100%;
   flex-direction: row;
   display: flex;
@@ -45,22 +45,44 @@ html, body, #root {
 }
 
 .roll-log {
-  position: fixed;
-  inset: 0;
+/*position: absolute;
+  inset: 0;*/
   background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
   transform: translateY(100%);
   transition: transform 0.5s ease;
+/*overflow-y: auto;
+  overflow-x: hidden;
+  width: 25%;
+  border: 10px solid #3B2416;
+  border-radius: 0px;
+  z-index: 9999;
+  box-sizing: border-box;*/
+}
+
+.roll-log.visible {
+  transform: translateY(27.2%);
+
+/*position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
   overflow-y: auto;
   overflow-x: hidden;
   width: 25%;
   border: 10px solid #3B2416;
   border-radius: 0px;
   z-index: 9999;
-  box-sizing: border-box;
-}
+  box-sizing: border-box;*/
 
-.roll-log.visible {
-  transform: translateY(0);
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 25%;
+  border: 10px solid #3B2416;
+  border-radius: 55px;
+  z-index: 9999;
+  box-sizing: border-box;
 }
 
 .log-btn {
@@ -83,4 +105,50 @@ html, body, #root {
   border: 5px double #3B2416;
   background: #c9a227;
   font-family: garamond;
+}
+
+.panel-2 {
+  position: absolute;
+  top: 175px;
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
+  border-radius: 75px;
+  gap: 100px;
+  border: 10px solid #3B2416;
+  box-sizing: border-box;
+  color: #9B111E;
+}
+
+.open-char-sheet-btn {
+  margin: 15px;
+  color: #3B2416;
+  width: 75px;
+  height: 75px;
+  border-radius: 55px;
+  border: 5px double #3B2416;
+  background: #c9a227;
+  font-family: garamond;
+}
+
+.dice-side-char-sheet {
+  transform: translateY(100%);
+  transition: transform 0.5s ease; 
+}
+
+.dice-side-char-sheet.visible {
+  transform: translateY(27%);
+
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  border: 10px solid #3B2416;
+  border-radius: 55px;
+  z-index: 9999;
+  box-sizing: border-box;
 }

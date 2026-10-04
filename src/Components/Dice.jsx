@@ -54,6 +54,14 @@ function Dice() {
     setShowRollLog(false);
   };
 
+  const handleOpenCharSheet = () => {
+    setShowCharSheet(true);
+  };
+
+  const handleCloseCharSheet = () => {
+    setShowCharSheet(false);
+  };
+
   const handleResetDice = () => {
     setDie1(6);
     setDie2(10);
@@ -165,8 +173,27 @@ function Dice() {
       </button>
     </div>
 
+    <div
+      className="panel-2"
+    >
+      <button
+        className="open-char-sheet-btn"
+        onClick={handleOpenCharSheet}
+      >
+        Character Sheet
+      </button>
+    </div>
+
     <div className={`roll-log ${showRollLog ? 'visible' : ''}`}>
-      <RollLog onCloseLog={handleCloseLog} newRoll={newRoll} />
+      {showRollLog && (
+        <RollLog onCloseLog={handleCloseLog} newRoll={newRoll} />
+      )}
+    </div>
+
+    <div className={`dice-side-char-sheet ${showCharSheet ? 'visible' : ''}`}>
+      {showCharSheet && (
+        <CharSheet onCloseCharSheet={handleCloseCharSheet} />
+      )}
     </div>
   </>
   )
